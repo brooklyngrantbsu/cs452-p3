@@ -8,10 +8,11 @@ int main(int argc, char **argv)
 {
 
   if (argc < 3)
-    {
-      printf("usage: %s <array_size> <num_threads>", argv[0]);
-      return 1;
-    }
+  {
+    printf("usage: %s <array_size> <num_threads>", argv[0]);
+    return 1;
+  }
+  
   int size = atoi(argv[1]);
   int t = atoi(argv[2]);
 
@@ -25,6 +26,8 @@ int main(int argc, char **argv)
   mergesort_mt(A_, size, t);
   end = getMilliSeconds();
   printf("%f %d\n",end-start, t);
+
+  free(A_);
 
   return 0;
 }
